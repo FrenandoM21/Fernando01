@@ -1,0 +1,15 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recibe los datos del archivo
+    $datosArchivo = file_get_contents("php://input");
+
+    /* Puedes hacer algo con los datos recibidos, como guardarlos en un archivo */
+    file_put_contents("archivo_recibido.txt", $datosArchivo);
+
+    // Respuesta exitosa
+    http_response_code(200);
+} else {
+    // Método no permitido
+    http_response_code(405);
+}
+?>
